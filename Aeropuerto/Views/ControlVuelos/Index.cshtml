@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Aeropuerto.Models.ControlVuelos>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+  <h2> VUELOS </h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Origen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaSalida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HoraVuelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Aerolinea)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Origen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaSalida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoraVuelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aerolinea)
+            </td>
+            
+        </tr>
+}
+    </tbody>
+</table>

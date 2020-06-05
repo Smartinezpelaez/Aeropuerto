@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Aeropuerto.Models.ControlDespegue>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdDespegue)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pista)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Clima)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechayHora)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdDespegue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pista)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Estado)
+            </td>
+            <td>
+                <!-- weather widget start --><a target="_blank" href="https://hotelmix.es/weather/cali-19115"><img src="https://w.bookcdn.com/weather/picture/21_19115_1_4_3658db_250_2a48ba_ffffff_ffffff_1_2071c9_ffffff_0_6.png?scode=124&domid=582&anc_id=55278" alt="booked.net" /></a><!-- weather widget end -->
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechayHora)
+            </td>
+
+            <td>
+                <!--Lo que se llame en Action link es una accion de tipo Get-->
+                @Html.ActionLink(" ", "Edit", "ControlDespegues", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fas fa-edit" })
+                @Html.ActionLink(" ", "Delete", "ControlDespegues", new { id = item.Id }, new { @class = "btn btn-primary btn-sm fas fa-trash" })
+
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
